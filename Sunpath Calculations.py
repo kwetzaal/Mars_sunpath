@@ -45,8 +45,14 @@ def solar_azimuth_calculations(Ls, time, lat, solar_altitude):
 
 def main():
     #intitialize values
-    sol_long = input("Input solar longitude (deg): ")
-    Ls = np.deg2rad(sol_long)
+    select = False
+    while select == False:
+        sol_long = input("Input solar longitude (deg): ")
+        if sol_long > 360 or sol_long < 0:
+            print("Please choose a longitude between 0 and 360 degrees.")
+        else:
+            Ls = np.deg2rad(sol_long)
+            select = True
 
     # choice of time values
     full_time = np.arange(0, 24, 0.5)
